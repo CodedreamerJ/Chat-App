@@ -8,8 +8,6 @@ import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
 
-
-
 let socket;
 
 //useEffect hook is used for the basic setup of users joining and disconnecting
