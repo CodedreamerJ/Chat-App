@@ -4,7 +4,7 @@ const http = require('http');
 const cors = require('cors');
 
 
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 const PORT = process.env.PORT || 5000;
 
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
     const user = removeUser(socket.id);
 
     if(user){
-      io.to(user.room).emit('message', { user: `Admin', text: '${user.name} has left.`});
+      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
       io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
     }
     })
